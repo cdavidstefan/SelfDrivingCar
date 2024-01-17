@@ -62,20 +62,20 @@ class Car {
         this.y -= Math.cos(this.angle)*this.speed;
     }
 
-    draw(context) {
-        context.save();
-        context.translate(this.x, this.y);
-        context.rotate(-this.angle);
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(-this.angle);
 
-        context.beginPath();
-        context.rect(
+        ctx.beginPath();
+        ctx.rect(
             -this.width/2,
             -this.height/2,
             this.width,
             this.height
         )
-        context.fill();
+        ctx.fill();
 
-        context.restore();
+        ctx.restore();
     }
 }
