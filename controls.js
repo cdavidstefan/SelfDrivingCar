@@ -20,7 +20,6 @@ class Controls {
                 case "ArrowDown": this.reverse = true;
                     break;
             }
-            console.table(this);
         }
 
         document.onkeyup = (event) => {
@@ -34,7 +33,6 @@ class Controls {
                 case "ArrowDown": this.reverse = false;
                     break;
             }
-            console.table(this);
         }
     }
 }
