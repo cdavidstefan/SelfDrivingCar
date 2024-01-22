@@ -42,17 +42,23 @@ function animate(time) {
     networkCanvas.height = window.innerHeight;
 
     carCtx.save();
-    carCtx.translate(0, -car.y + carCanvas.height * 0.75);
+    carCtx.translate(0, -cars[0].y + carCanvas.height * 0.75);
 
     road.draw(carCtx);
     for (let i=0; i < traffic.length; i++) {
         traffic[i].draw(carCtx, "red");
     }
-    car.draw(carCtx, "darkgreen");
+
+    carCtx.globalAlpha = 0.2;
+    for (let i = 0; i < cars.length; i++) {
+    cars[i].draw(carCtx, "darkgreen");
+    }
+
+    carCtx.globalAlpha = 1;
 
     carCtx.restore();
 
     networkCtx.lineDashOffset = -time/50;
-    Visualizer.drawNetwork(networkCtx, car.brain);
+    Visualizer.drawNetwork(networkCtx, cars[0].brain);
     requestAnimationFrame(animate);
 }
