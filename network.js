@@ -1,7 +1,7 @@
 class NeuralNetwork {
     constructor(neuronCounts) {
         this.levels = [];
-        for (let i = 0; i < neuronCounts-1; i++) {
+        for (let i = 0; i < neuronCounts.length - 1; i++) {
             this.levels.push(new Level(
                 neuronCounts[i], neuronCounts[i+1]
             ));
@@ -41,12 +41,11 @@ class Level {
         }
 
         for (let i = 0; i < level.biases.length; i++) {
-            level.biases[i].Math.random() * 2 - 1;
+            level.biases[i] = Math.random() * 2 - 1;
         }
     }
 
     static feedForward(givenInputs, level) {
-        console.log(givenInputs, "asd", level);
         for (let i = 0; i < level.inputs.length; i++) {
             level.inputs[i] = givenInputs[i];
         }
@@ -63,6 +62,7 @@ class Level {
                 level.outputs[i] = 0;
             }
         }
+
         return level.outputs;
     }
 }
