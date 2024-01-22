@@ -55,6 +55,7 @@ function animate(time) {
     }
 
     carCtx.globalAlpha = 1;
+    cars[0].draw(carCtx, "darkgreen", true);
 
     carCtx.restore();
 
