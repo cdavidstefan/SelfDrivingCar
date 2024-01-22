@@ -4,7 +4,7 @@ const networkCanvas = document.getElementById("networkCanvas");
 networkCanvas.width = 600;
 
 const carCtx = carCanvas.getContext("2d");
-const networkCtx = carCanvas.getContext("2d");
+const networkCtx = networkCanvas.getContext("2d");
 
 const road = new Road(carCanvas.width/2, carCanvas.width * 0.95);
 const car = new Car(road.getLaneCenter(2), 200, 30, 50, "AI");
@@ -16,7 +16,7 @@ const traffic = [
 
 
 animate();
-// car.draw(carCtx);
+car.draw(carCtx);
 
 function animate() {
     for (let i = 0; i < traffic.length; i++) {
